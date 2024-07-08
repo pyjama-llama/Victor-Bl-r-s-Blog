@@ -1,0 +1,34 @@
+---
+title: "My new test post Code"
+author: "Victor Blær"
+date: "2024-07-05"
+categories: [news, code, analysis, test]
+image: "image.jpg"
+theme: "cosmo"
+---
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```
+
+-   It's also my first quarto blog github something post test.
+
+-   another bullet
+
+::: callout-note
+this is a callout test
+:::
+
+#### my small heading
+
+😊 this is really cool
+
+> this is a blockqoute
+
+### another small heading
+
+test
+
+## heading type 2
