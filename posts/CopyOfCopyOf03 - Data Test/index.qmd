@@ -1,0 +1,49 @@
+---
+title: "Mggplot teest with code hiide"
+author: "Victor Blær"
+date: "2024-07-12"
+categories: [news, code, analysis, test2]
+image: "image.jpg"
+theme: "darkly"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```
+
+abc
+
+```{r}
+library(ggplot2)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) + 
+  geom_point()
+```
+
+-   
+
+-   It's also my first quarto blog github something post test.
+
+-   another bullet
+
+::: callout-note
+this is a callout test
+:::
+
+#### my small heading
+
+😊 this is really cool
+
+> this is a blockqoute
+
+### another small heading
+
+test
+
+## heading type 2
