@@ -1,5 +1,5 @@
 ---
-title: "Mggplot teest with code hiide"
+title: "2 ggplot teest with code hiide"
 author: "Victor Blær"
 date: "2024-07-12"
 categories: [news, code, analysis, test2]
@@ -20,6 +20,8 @@ This is a post with executable code.
 abc
 
 ```{r}
+#install.packages("palmerpenguins")
+#library(tidyverse)
 library(ggplot2)
 
 ggplot(mpg, aes(displ, hwy, colour = class)) + 
