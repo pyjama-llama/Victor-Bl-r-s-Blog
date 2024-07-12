@@ -1,0 +1,15 @@
+{
+  "hash": "ccbb9cdf47834dd0747d7c581bdcd8eb",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"My new test post Code\"\nauthor: \"Victor Blær\"\ndate: \"2024-07-13\"\ncategories: [news, code, analysis, test2]\nimage: \"image.jpg\"\ntheme: \"darkly\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n-   It's also my first quarto blog github something post test.\n\n-   another bullet\n\n::: callout-note\nthis is a callout test\n:::\n\n#### my small heading\n\n😊 this is really cool\n\n> this is a blockqoute\n\n### another small heading\n\ntest\n\n## heading type 2\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

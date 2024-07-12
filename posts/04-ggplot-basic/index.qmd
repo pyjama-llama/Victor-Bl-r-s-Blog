@@ -1,5 +1,5 @@
 ---
-title: "Mggplot teest"
+title: "ggplot testing"
 author: "Victor Blær"
 date: "2024-07-12"
 categories: [news, code, analysis, test2]
