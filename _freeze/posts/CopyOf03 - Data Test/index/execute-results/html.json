@@ -1,0 +1,17 @@
+{
+  "hash": "f6772eaef3ae9d4eef086b0d3ab46b12",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Mggplot teest\"\nauthor: \"Victor Blær\"\ndate: \"2024-07-12\"\ncategories: [news, code, analysis, test2]\nimage: \"image.jpg\"\ntheme: \"darkly\"\n---\n\n\nThis is a post with executable code.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\nabc\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\nggplot(mpg, aes(displ, hwy, colour = class)) + \n  geom_point()\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n-   \n\n-   It's also my first quarto blog github something post test.\n\n-   another bullet\n\n::: callout-note\nthis is a callout test\n:::\n\n#### my small heading\n\n😊 this is really cool\n\n> this is a blockqoute\n\n### another small heading\n\ntest\n\n## heading type 2\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
