@@ -1,0 +1,61 @@
+---
+title: "Render test Palmerpenguinz Benedikt cumberbatch"
+author: "Victor Blær"
+date: "2024-07-14"
+categories: [penguins]
+image: "image.jpg"
+theme: "darkly"
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```
+
+> 01 - basic ggplot
+
+```{r}
+#install.packages("palmerpenguins")
+#library(tidyverse)
+library(ggplot2)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) + 
+  geom_point()
+```
+
+-   
+
+-   It's also my first quarto blog github something post test.
+
+::: callout-note
+this is a callout test
+:::
+
+#### my small heading
+
+😊 this is really cool
+
+> this is a blockqoute
+
+### another small heading
+
+test
+
+## 02 - palmerpenguins
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
+  geom_point()
+
+```
+
+```{r}
+glimpse(penguins)
+```

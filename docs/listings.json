@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/06-testing-rendering/index.html",
       "/posts/03 - Data Test Base/index.html",
       "/posts/05-ggplot-show-code/index.html",
       "/posts/04-ggplot-basic/index.html",
