@@ -1,7 +1,7 @@
 ---
-title: "Render test Palmerpenguinz Benedikt cumberbatch"
+title: "Visualizing Advanced Distribbuuttions"
 author: "Victor Blær"
-date: "2024-07-14"
+date: "2024-08-14"
 categories: [penguins]
 image: "image.jpg"
 theme: "darkly"
@@ -30,8 +30,6 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()
 ```
 
--   
-
 -   It's also my first quarto blog github something post test.
 
 ::: callout-note
@@ -58,15 +56,22 @@ ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) +
 
 ```
 
+
 ```{r}
-glimpse(penguins)
+library(tidyverse)
+#install.packages("ggdist")
+library(ggdist)
+theme_set(
+  theme_minimal(
+    base_size = 16,
+    base_family = 'Source Sans Pro'
+  ) +
+    theme(panel.grid.minor = element_blank())
+) 
+
 ```
 
-```{r}
-
-```
-
-```{r}
+``` {r}
 ##install.packages("thematic")
 ##install.packages("ggtext")
 
@@ -234,6 +239,5 @@ palmerpenguins::penguins |>
     position = position_nudge(y = 0.075), 
     height = 0.75
   )
-
 
 ```

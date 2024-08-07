@@ -1,72 +1,36 @@
 ---
-title: "Render test Palmerpenguinz Benedikt cumberbatch"
-author: "Victor Blær"
-date: "2024-07-14"
-categories: [penguins]
-image: "image.jpg"
-theme: "darkly"
-format:
-  html:
-    code-fold: true
-    code-summary: "Show the code"
+title: "Rainclouds"
+output: html_document
+date: "2024-08-07"
 editor_options: 
   chunk_output_type: console
 ---
 
-This is a post with executable code.
-
-```{r}
-1 + 1
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-> 01 - basic ggplot
+## R Markdown
 
-```{r}
-#install.packages("palmerpenguins")
-#library(tidyverse)
-library(ggplot2)
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-ggplot(mpg, aes(displ, hwy, colour = class)) + 
-  geom_point()
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
 ```
 
--   
+## Including Plots
 
--   It's also my first quarto blog github something post test.
+You can also embed plots, for example:
 
-::: callout-note
-this is a callout test
-:::
-
-#### my small heading
-
-😊 this is really cool
-
-> this is a blockqoute
-
-### another small heading
-
-test
-
-## 02 - palmerpenguins
-
-```{r}
-library(tidyverse)
-library(palmerpenguins)
-ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
-  geom_point()
-
+```{r pressure, echo=FALSE}
+plot(pressure)
 ```
 
-```{r}
-glimpse(penguins)
-```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-```{r}
-
-```
-
-```{r}
+```{r raincode}
 ##install.packages("thematic")
 ##install.packages("ggtext")
 

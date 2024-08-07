@@ -1,89 +1,21 @@
----
-title: "Render test Palmerpenguinz Benedikt cumberbatch"
-author: "Victor Blær"
-date: "2024-07-14"
-categories: [penguins]
-image: "image.jpg"
-theme: "darkly"
-format:
-  html:
-    code-fold: true
-    code-summary: "Show the code"
-editor_options: 
-  chunk_output_type: console
----
 
-This is a post with executable code.
 
-```{r}
-1 + 1
-```
-
-> 01 - basic ggplot
-
-```{r}
-#install.packages("palmerpenguins")
-#library(tidyverse)
-library(ggplot2)
-
-ggplot(mpg, aes(displ, hwy, colour = class)) + 
-  geom_point()
-```
-
--   
-
--   It's also my first quarto blog github something post test.
-
-::: callout-note
-this is a callout test
-:::
-
-#### my small heading
-
-😊 this is really cool
-
-> this is a blockqoute
-
-### another small heading
-
-test
-
-## 02 - palmerpenguins
-
-```{r}
-library(tidyverse)
-library(palmerpenguins)
-ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
-  geom_point()
-
-```
-
-```{r}
-glimpse(penguins)
-```
-
-```{r}
-
-```
-
-```{r}
-##install.packages("thematic")
-##install.packages("ggtext")
+{r}
 
 library(tidyverse)
 library(ggdist)
 theme_set(
   theme_minimal(
     base_size = 16,
-    ##base_family = 'Source Sans Pro'
+    base_family = 'Source Sans Pro'
   ) +
     theme(panel.grid.minor = element_blank())
 ) 
 
+As promised in the last newsletter, today, I will show you how to combine multiple visualizations of uncertainty to create one very powerful visualization which is known as the rain cloud plot.
+So, a plot like this, it looks like this.
 
-## As promised in the last newsletter, today, I will ##show you how to combine multiple visualizations of ##uncertainty to create one very powerful visualization ##which is known as the rain cloud plot.
-##So, a plot like this, it looks like this.
-
+```{r}
 colors <- thematic::okabe_ito(3)
 names(colors) <- unique(palmerpenguins::penguins$species)
 title_text <- glue::glue(
@@ -121,10 +53,14 @@ palmerpenguins::penguins |>
     plot.title = ggtext::element_markdown(),
     legend.position = 'none'
   )
+```
 
 
 
+Basically this chart is a combination of density chart, box plot and dot histogram.
+Alternatively, you could also show the exact data instead of a dot histogram.
 
+```{r}
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
@@ -137,7 +73,7 @@ palmerpenguins::penguins |>
   ) +
   geom_boxplot(
     width = 0.1,
-   
+    
   ) +
   stat_slab(
     position = position_nudge(y = 0.075), 
@@ -157,22 +93,31 @@ palmerpenguins::penguins |>
     plot.title = ggtext::element_markdown(),
     legend.position = 'none'
   )
+```
 
-
+Both of these combinations can give you a great deal of information of the distribution in the data.
+So let's start to build this.
 
 ## Begin with box plots
 
 
+First, we are going to create a box plot for each penguin species in our data set.
+In this step, we can already make the width of the box plots narrower (since we know that we will need room and don't have any use for a huge box).
 
+```{r}
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
   geom_boxplot(width = 0.1)
+```
 
 # Add the dots
 
+Next, we can add the dot histogram with `geom_dots()` from `{ggdist}`.
+Conveniently, this function has a argument called `side` that we can set to `"bottom"` to make our dots stack downwards.
+Also, we can use `position_nudge()` to move all dots down a little bit so that they do not overlap with the box plots.
 
-
+```{r}
 library(ggdist)
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
@@ -182,11 +127,16 @@ palmerpenguins::penguins |>
     side = 'bottom', 
     position = position_nudge(y = -0.075)
   )
+```
 
 
 # Add the density plots
 
+Now, let us finish our chart by adding the density plot.
+Here, I am not going to use `geom_density()` or `stat_density()` but `stat_slab()` from `{ggdist}`.
+You can think of the latter function as more or less the same but it behaves in a more convenient way for our purposes here.
 
+```{r}
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
@@ -198,11 +148,18 @@ palmerpenguins::penguins |>
   stat_slab(
     position = position_nudge(y = 0.075) # move up a little bit
   )
+```
 
 # Avoid overlapping
 
+We're almost done.
+But we need to do some fine-tuning.
+Right now, the dots and densitys overlap.
+That's not very nice.
+We can fix that by setting the `height` arguments in `stat_slab()` and `geom_dots()`.
 
 
+```{r}
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
@@ -216,9 +173,19 @@ palmerpenguins::penguins |>
     position = position_nudge(y = 0.075), 
     height = 0.75
   )
+```
 
+That's it.
+We've created our raincloud plot.
+Of course, you can now style this however you like.
+In the above images, I've just changed the colors and used colored labels in the title instead of using a y-axis and legend.
 
+# Modifications
 
+Finally, let me show you the nifty trick that I used to create the "bar code" instead of using a dot histogram.
+Here's the code.
+
+```{r}
 palmerpenguins::penguins |> 
   filter(!is.na(sex)) |> 
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
@@ -234,6 +201,12 @@ palmerpenguins::penguins |>
     position = position_nudge(y = 0.075), 
     height = 0.75
   )
-
-
 ```
+
+Basically, I have replaced `geom_dots()` by `geom_point()` and set it's shape to `¨|"`.
+The rest is just setting the color, using transparency and shifting the points a bit downward.
+
+# Further reading
+
+So that's how you create raincloud plots.
+If you want to read more about these, I recommend checking out [Cédric Scherer's excellent blog post](https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/).
