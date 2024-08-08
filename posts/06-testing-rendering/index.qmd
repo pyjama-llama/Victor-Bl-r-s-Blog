@@ -16,7 +16,7 @@ editor_options:
 This is a post with executable code.
 
 ```{r}
-1 + 1
+100. *9
 ```
 
 > 01 - basic ggplot
