@@ -18,3 +18,5 @@ about:
 Welcome! I'm Victor, former insights manager at Facebook, Senior Financial Analyst at Google, Global Proposition Dev Manager at Vodafone Location Analytics, Galactic space traveler, amateur tv script writer & former hand model.
 
 This blog is so I can practice learning R and Quarto and just have some data fun!
+
+Most of my work has been proprietary but it's on my backlog to put some samples together.

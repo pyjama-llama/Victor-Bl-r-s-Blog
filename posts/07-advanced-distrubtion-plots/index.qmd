@@ -13,20 +13,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-This is a post with executable code.
+Box plots are booooring, let's make it rain!
 
-Here we have the basic mpg scatter plot.
+##put image here from that ben stiller movie
 
-```{r}
-#install.packages("palmerpenguins")
-#library(tidyverse)
-library(ggplot2)
-
-ggplot(mpg, aes(displ, hwy, colour = class)) + 
-  geom_point()
-```
-
-## 02 - New ways to visualize distributions
+## 01 - New ways to visualize distributions
 
 Let's face it. We've all seen enough xy and box plots to last a life time.
 
