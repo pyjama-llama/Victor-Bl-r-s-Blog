@@ -13,7 +13,8 @@ about:
     - icon: github
       text: Github
       href: https://github.com
-
 ---
 
-About this blog
+Welcome! I'm Victor, former insights manager at Facebook, Senior Financial Analyst at Google, Global Proposition Dev Manager at Vodafone Location Analytics, Galactic space traveler, amateur tv script writer & former hand model.
+
+This blog is so I can practice learning R and Quarto and just have some data fun!

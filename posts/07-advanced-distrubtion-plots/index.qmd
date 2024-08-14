@@ -15,11 +15,7 @@ editor_options:
 
 This is a post with executable code.
 
-```{r}
-1 + 1
-```
-
-> 01 - basic ggplot
+Here we have the basic mpg scatter plot.
 
 ```{r}
 #install.packages("palmerpenguins")
@@ -30,23 +26,11 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()
 ```
 
--   It's also my first quarto blog github something post test.
+## 02 - New ways to visualize distributions
 
-::: callout-note
-this is a callout test
-:::
+Let's face it. We've all seen enough xy and box plots to last a life time.
 
-#### my small heading
-
-😊 this is really cool
-
-> this is a blockqoute
-
-### another small heading
-
-test
-
-## 02 - palmerpenguins
+That's why I'm going through (guys name here) tutorral..
 
 ```{r}
 library(tidyverse)
@@ -56,9 +40,8 @@ ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) +
 
 ```
 
-
 ```{r}
-library(tidyverse)
+#library(tidyverse)
 #install.packages("ggdist")
 library(ggdist)
 theme_set(
@@ -71,7 +54,7 @@ theme_set(
 
 ```
 
-``` {r}
+```{r}
 ##install.packages("thematic")
 ##install.packages("ggtext")
 
