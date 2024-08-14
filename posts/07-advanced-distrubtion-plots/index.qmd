@@ -8,7 +8,7 @@ theme: "darkly"
 format:
   html:
     code-fold: true
-    code-summary: "testing code summary blurb
+    code-summary: "testing code summary blurb"
 editor_options: 
   chunk_output_type: console
 ---
