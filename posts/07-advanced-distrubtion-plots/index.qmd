@@ -1,14 +1,14 @@
 ---
-title: "Visualizing Advanced Distribbuuttions"
+title: "Box Plots are sooo boring, Rain Drops keep falling on my head - Fun ways to visualize uncertainty"
 author: "Victor Blær"
 date: "2024-08-14"
-categories: [penguins]
-image: "image.jpg"
+categories: [raindrop plots, advanced data viz, uncertainty ]
+image: "01_raindrops.png"
 theme: "darkly"
 format:
   html:
     code-fold: true
-    code-summary: "testing code summary blurb"
+    code-summary: "RRR bewarrre pirate, there be code hurrr"
 editor_options: 
   chunk_output_type: console
 ---
