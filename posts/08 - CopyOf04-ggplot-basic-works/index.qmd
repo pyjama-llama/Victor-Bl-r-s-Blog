@@ -1,0 +1,126 @@
+---
+title: "ggplot testing"
+author: "Victor Blær"
+date: "2025-01-22"
+categories: [news, code, analysis, test2]
+image: "image.jpg"
+theme: "darkly"
+---
+
+# Testing different embed options
+
+-   Iframe (static not recommended vs embed (recommended).
+
+-   Also, need to update OS for newest R studio. Running into issues with advanced stuff in the YAML..currently working on Jan 22nd 2025
+
+This is a post with executable code.
+
+```{r}
+1 + 1
+```
+
+Option 1 - "Works" but preview looks different than render. Also doesn't scale, cuts off the title and a little off
+
+::: {.flourish-embed .flourish-chart data-src="visualisation/21098727"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/21098727/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
+
+------------------------------------------------------------------------
+
+### Option 2 - Using embed other iframe
+
+-   Works well ish..need to tweek.
+
+------------------------------------------------------------------------
+
+<iframe src="https://flo.uri.sh/visualisation/21098727/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height:600px;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+
+</iframe>
+
+::: {style="width:100%!;margin-top:4px!important;text-align:right!important;"}
+<a class='flourish-credit' href='https://public.flourish.studio/visualisation/21098727/?utm_source=embed&utm_campaign=visualisation/21098727' target='_top' style='text-decoration:none!important'><img src="https://public.flourish.studio/resources/made_with_flourish.svg" alt="Made with Flourish" style="width:105px!important;height:16px!important;border:none!important;margin:0!important;"/> </a>
+:::
+
+------------------------------------------------------------------------
+
+### Option 3 - Using recommended and chart2
+
+-   conclusion - works really well ! wooohoo, now test v2
+
+------------------------------------------------------------------------
+
+::: {.flourish-embed .flourish-chart data-src="visualisation/21258895"}
+```{=html}
+<script src="https://public.flourish.studio/resources/embed.js"></script>
+```
+
+<noscript><img src="https://public.flourish.studio/visualisation/21258895/thumbnail" alt="chart visualization" width="100%"/></noscript>
+:::
+
+------------------------------------------------------------------------
+
+### Option 4 - Using iframe, apparently isn't responsive
+
+-   conclusion - actually works better and is responsive.
+
+    > tested by changing browser window size and it worked. Worked even better than option 3 bc the chart title labels didn't smush the chart down.
+
+------------------------------------------------------------------------
+
+<iframe src="https://flo.uri.sh/visualisation/21258895/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height:600px;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation">
+
+</iframe>
+
+::: {style="width:100%!;margin-top:4px!important;text-align:right!important;"}
+<a class='flourish-credit' href='https://public.flourish.studio/visualisation/21258895/?utm_source=embed&utm_campaign=visualisation/21258895' target='_top' style='text-decoration:none!important'><img src="https://public.flourish.studio/resources/made_with_flourish.svg" alt="Made with Flourish" style="width:105px!important;height:16px!important;border:none!important;margin:0!important;"/> </a>
+:::
+
+```{r}
+library(ggplot2)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) + 
+  geom_point()
+```
+
+-   
+
+-   It's also my first quarto blog github something post test.
+
+-   another bullet
+
+::: callout-note
+this is a callout test
+:::
+
+#### my small heading
+
+😊 this is really cool
+
+> this is a blockqoute
+
+### another small heading
+
+test
+
+## heading type 2
+
+<!--# some commeent -->
+
+```{r}
+22*2
+
+```
+
+``` r
+code block optional
+```
+
+inserrtt eexec cll
+
+```{r}
+
+```

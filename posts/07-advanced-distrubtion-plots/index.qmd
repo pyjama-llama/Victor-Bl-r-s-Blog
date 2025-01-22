@@ -5,17 +5,13 @@ date: "2024-08-14"
 categories: [raindrop plots, advanced data viz, uncertainty ]
 image: "01_raindrops.png"
 theme: "darkly"
-format:
-  html:
-    code-fold: true
-    code-summary: "RRR bewarrre pirate, there be code hurrr"
-editor_options: 
-  chunk_output_type: console
+
 ---
 
 Box plots are booooring, let's make it rain!
 
-##put image here from that ben stiller movie
+##put image here from that ben stiller movie 
+## keep getting unnamed chunk error! arg.
 
 ## 01 - New ways to visualize distributions
 
@@ -28,12 +24,11 @@ library(tidyverse)
 library(palmerpenguins)
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
   geom_point()
-
 ```
 
 ```{r}
-#library(tidyverse)
-#install.packages("ggdist")
+library(tidyverse)
+install.packages("ggdist")
 library(ggdist)
 theme_set(
   theme_minimal(
@@ -49,15 +44,6 @@ theme_set(
 ##install.packages("thematic")
 ##install.packages("ggtext")
 
-library(tidyverse)
-library(ggdist)
-theme_set(
-  theme_minimal(
-    base_size = 16,
-    ##base_family = 'Source Sans Pro'
-  ) +
-    theme(panel.grid.minor = element_blank())
-) 
 
 
 ## As promised in the last newsletter, today, I will ##show you how to combine multiple visualizations of ##uncertainty to create one very powerful visualization ##which is known as the rain cloud plot.
@@ -139,7 +125,7 @@ palmerpenguins::penguins |>
 
 
 
-## Begin with box plots
+Begin with box plots
 
 
 
@@ -148,7 +134,7 @@ palmerpenguins::penguins |>
   ggplot(aes(x = body_mass_g, fill = species, y = species)) +
   geom_boxplot(width = 0.1)
 
-# Add the dots
+ Add the dots
 
 
 
@@ -163,7 +149,7 @@ palmerpenguins::penguins |>
   )
 
 
-# Add the density plots
+Add the density plots
 
 
 palmerpenguins::penguins |> 
@@ -178,7 +164,7 @@ palmerpenguins::penguins |>
     position = position_nudge(y = 0.075) # move up a little bit
   )
 
-# Avoid overlapping
+Avoid overlapping
 
 
 

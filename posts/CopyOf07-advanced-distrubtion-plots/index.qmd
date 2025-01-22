@@ -1,0 +1,208 @@
+---
+title: "Box Plots are sooo boring, Rain Drops keep falling on my head - Fun ways to visualize uncertainty"
+author: "Victor Blær"
+date: "2024-08-14"
+categories: [raindrop plots, advanced data viz, uncertainty ]
+image: "01_raindrops.png"
+theme: "darkly"
+format:
+  html:
+    code-fold: true
+    code-summary: "RRR bewarrre pirate, there be code hurrr"
+editor_options: 
+  chunk_output_type: console
+---
+
+Box plots are booooring, let's make it rain!
+
+##put image here from that ben stiller movie
+
+## 01 - New ways to visualize distributions
+
+Let's face it. We've all seen enough xy and box plots to last a life time.
+
+That's why I'm going through (guys name here) tutorral..
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
+  geom_point()
+
+```
+
+```{r}
+#library(tidyverse)
+#install.packages("ggdist")
+library(ggdist)
+theme_set(
+  theme_minimal(
+    base_size = 16,
+    base_family = 'Source Sans Pro'
+  ) +
+    theme(panel.grid.minor = element_blank())
+) 
+
+```
+
+```{r}
+##install.packages("thematic")
+##install.packages("ggtext")
+
+
+
+## As promised in the last newsletter, today, I will ##show you how to combine multiple visualizations of ##uncertainty to create one very powerful visualization ##which is known as the rain cloud plot.
+##So, a plot like this, it looks like this.
+
+colors <- thematic::okabe_ito(3)
+names(colors) <- unique(palmerpenguins::penguins$species)
+title_text <- glue::glue(
+  'Penguin weights (in g) for the Species',  
+  '<span style = "color:{colors["Adelie"]}">**Adelie**</span>,', 
+  '<span style = "color:{colors["Chinstrap"]}">**Chinstrap**</span>', 
+  'and',
+  '<span style = "color:{colors["Gentoo"]}">**Gentoo**</span>', 
+  .sep = ' '
+)
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1) +
+  geom_dots(
+    side = 'bottom', 
+    height = 0.55,
+    position = position_nudge(y = -0.075)
+  ) +
+  stat_slab(
+    position = position_nudge(y = 0.075), 
+    height = 0.75
+  ) +
+  scale_y_discrete(
+    breaks = c('Adelie', 'Gentoo', 'Chinstrap')
+  ) +
+  scale_fill_manual(values = colors) +
+  labs(
+    x = element_blank(), 
+    y = element_blank(), 
+    title = title_text
+  ) +
+  theme(
+    plot.title = ggtext::element_markdown(),
+    legend.position = 'none'
+  )
+
+
+
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_point(
+    aes(color = species),
+    shape = '|',
+    size = 9,
+    alpha = 0.3,
+    position = position_nudge(y = -0.175)
+  ) +
+  geom_boxplot(
+    width = 0.1,
+   
+  ) +
+  stat_slab(
+    position = position_nudge(y = 0.075), 
+    height = 0.75
+  ) +
+  scale_y_discrete(
+    breaks = c('Adelie', 'Gentoo', 'Chinstrap')
+  ) +
+  scale_fill_manual(values = colors) +
+  scale_color_manual(values = colors) +
+  labs(
+    x = element_blank(), 
+    y = element_blank(), 
+    title = title_text
+  ) +
+  theme(
+    plot.title = ggtext::element_markdown(),
+    legend.position = 'none'
+  )
+
+
+
+Begin with box plots
+
+
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1)
+
+ Add the dots
+
+
+
+library(ggdist)
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1) +
+  geom_dots(
+    side = 'bottom', 
+    position = position_nudge(y = -0.075)
+  )
+
+
+Add the density plots
+
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1) +
+  geom_dots(
+    side = 'bottom', 
+    position = position_nudge(y = -0.075)
+  ) +
+  stat_slab(
+    position = position_nudge(y = 0.075) # move up a little bit
+  )
+
+Avoid overlapping
+
+
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1) +
+  geom_dots(
+    side = 'bottom', 
+    position = position_nudge(y = -0.075),
+    height = 0.55
+  ) +
+  stat_slab(
+    position = position_nudge(y = 0.075), 
+    height = 0.75
+  )
+
+
+
+palmerpenguins::penguins |> 
+  filter(!is.na(sex)) |> 
+  ggplot(aes(x = body_mass_g, fill = species, y = species)) +
+  geom_boxplot(width = 0.1) +
+  geom_point(
+    aes(color = species),
+    shape = "|",
+    size = 10,
+    alpha = 0.5,
+    position = position_nudge(y = -0.175)
+  ) +
+  stat_slab(
+    position = position_nudge(y = 0.075), 
+    height = 0.75
+  )
+
+```

@@ -9,6 +9,8 @@ format:
   html:
     code-fold: true
     code-summary: "Show the code"
+editor_options: 
+  chunk_output_type: console
 ---
 
 This is a post with executable code.
@@ -17,7 +19,7 @@ This is a post with executable code.
 1 + 1
 ```
 
-> 01 - basic ggplot
+## 01 - basic ggplot
 
 ```{r}
 #install.packages("palmerpenguins")
@@ -28,24 +30,6 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
   geom_point()
 ```
 
--   
-
--   It's also my first quarto blog github something post test.
-
-::: callout-note
-this is a callout test
-:::
-
-#### my small heading
-
-😊 this is really cool
-
-> this is a blockqoute
-
-### another small heading
-
-test
-
 ## 02 - palmerpenguins
 
 ```{r}
@@ -53,7 +37,6 @@ library(tidyverse)
 library(palmerpenguins)
 ggplot(penguins, aes(bill_length_mm, flipper_length_mm, colour = species)) + 
   geom_point()
-
 ```
 
 ```{r}
